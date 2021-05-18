@@ -6,8 +6,8 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class Consumer {
-    private StoreReader storeReader=new StoreImpl();
-    private StoreWriter storeWriter=new StoreImpl();
+    private StoreReader storeReader;
+    private StoreWriter storeWriter;
 
     public void consume(int id) throws StorageEmptyException, StorageFullException {
         storeWriter.add(storeReader.remove(id));
