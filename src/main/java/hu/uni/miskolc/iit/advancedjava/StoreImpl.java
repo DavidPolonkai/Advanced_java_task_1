@@ -5,7 +5,7 @@ import hu.uni.miskolc.iit.advancedjava.exceptions.StorageFullException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Store {
+public class StoreImpl implements StoreReader,StoreWriter {
     private static List<Product> productList = new ArrayList<>();
 
     public void add(Product product) throws StorageFullException {

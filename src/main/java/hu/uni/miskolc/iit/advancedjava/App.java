@@ -12,14 +12,12 @@ public class App
     public static void main( String[] args )
     {
         try {
-            new Producer().produce();
-            new Producer().produce();
-            new Producer().produce();
-            new Consumer().consume(0);
-            System.out.println(new Store().remove(0).toString());
-        } catch (StorageEmptyException e) {
-            e.printStackTrace();
-        } catch (StorageFullException e) {
+            new Producer(new StoreImpl(),new StoreImpl()).produce();
+            new Producer(new StoreImpl(),new StoreImpl()).produce();
+            new Producer(new StoreImpl(),new StoreImpl()).produce();
+            new Consumer(new StoreImpl(),new StoreImpl()).consume(0);
+            System.out.println(new StoreImpl().remove(0).toString());
+        } catch (StorageEmptyException|StorageFullException e) {
             e.printStackTrace();
         }
     }
